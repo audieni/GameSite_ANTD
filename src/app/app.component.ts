@@ -49,5 +49,7 @@ export class AppComponent {
     this.message = '';
     this.playerIcon = '';
     this.computerIcon = '';
+    this.playerChoice = '';
+    this.computerChoice = '';
   }
 }

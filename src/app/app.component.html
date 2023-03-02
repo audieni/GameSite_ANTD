@@ -8,27 +8,27 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 p-2">
-        <h3>Round {{ roundCount }}</h3>
+      <div class="col-md-12">
+        <h4>Round {{ roundCount }}</h4>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h3>Player 1</h3>
+            <h3>Player {{ playerIcon }}</h3>
             <button type="button" class="btn btn-outline-info choice m-2" (click)="startGame('Rock')">&#9994;</button>
             <button type="button" class="btn btn-outline-info choice m-2" (click)="startGame('Paper')">&#9995;</button>
             <button type="button" class="btn btn-outline-info choice m-2" (click)="startGame('Scissor')">&#9996;</button>
             <br>
-            <p>Player Score: {{ playerScore }}</p>
+            <h4>Score: {{ playerScore }}</h4>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h3>Computer</h3>
+            <h3>Computer {{ computerIcon }}</h3>
             <button type="button" class="btn choice m-2"
               [ngClass]="computerChoice === 'Rock' ? 'btn-info' : 'btn-outline-info disabled'">&#9994;</button>
             <button type="button" class="btn choice m-2"
@@ -36,7 +36,7 @@
             <button type="button" class="btn choice m-2"
               [ngClass]="computerChoice === 'Scissor' ? 'btn-info' : 'btn-outline-info disabled'">&#9996;</button>
             <br>
-            <p>Computer Score: {{ computerScore }}</p>
+            <h4>Score: {{ computerScore }}</h4>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 p-2">
+      <div class="col-md-12">
         <button type="button" class="btn btn-danger" (click)="resetScore()">Reset</button>
       </div>
     </div>

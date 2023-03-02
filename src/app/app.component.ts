@@ -6,28 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // Computer random selection
-  // Win-Lose-Tie Detection
-  // Option to reset the game.
-  // Keep score for player & computer
-  // Track number of rounds
-
   choices: string[] = ['Rock', 'Paper', 'Scissor']
+  icons: string[] = ['✊', '✋', '✌']
 
   roundCount: number = 0;
 
   playerScore: number = 0;
   playerChoice: string = '';
+  playerIcon: string = '';
 
   computerScore: number = 0;
   computerChoice: string = '';
+  computerIcon: string = '';
 
   message: string = '';
 
   startGame(playerChoice: string): void {
     this.roundCount += 1;
-    this.computerChoice = this.choices[Math.floor(Math.random() * 3)];
-    console.log(`Round ${this.roundCount} - Computer's Choice: ${this.computerChoice}`);
+    let playerValue = this.choices.indexOf(playerChoice);
+    this.playerIcon = this.icons[playerValue];
+    let computerValue = Math.floor(Math.random() * 3);
+    this.computerIcon = this.icons[computerValue];
+    this.computerChoice = this.choices[computerValue];
 
     if (playerChoice === this.computerChoice) {
       this.message = 'It\'s a tie!';
@@ -40,8 +40,6 @@ export class AppComponent {
         this.playerScore += 1;
         this.message = 'You won!';
     }
-
-    console.log(`${this.message}: ${this.playerScore}-${this.computerScore}`);
   }
 
   resetScore(): void {
@@ -49,5 +47,7 @@ export class AppComponent {
     this.computerScore = 0;
     this.roundCount = 0;
     this.message = '';
+    this.playerIcon = '';
+    this.computerIcon = '';
   }
 }
